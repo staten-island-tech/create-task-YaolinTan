@@ -81,7 +81,3 @@ Using the list identified in the List section of your Personalized Project Refer
 ---
 
 ### End of Exam
-
-```
-
-```
