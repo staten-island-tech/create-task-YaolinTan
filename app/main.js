@@ -1,19 +1,13 @@
 console.log("Hello World");
 
-const url =
-  "https://nba-stats4.p.rapidapi.com/per_game_regular_season/?per_page=50&page=1";
-const options = {
-  method: "GET",
-  headers: {
-    "x-rapidapi-key": "b547fab545msh1e011958ac061d1p1962dcjsn97b955f29017",
-    "x-rapidapi-host": "nba-stats4.p.rapidapi.com",
-  },
-};
+import { BalldontlieAPI } from "@balldontlie/sdk";
 
-try {
-  const response = await fetch(url, options);
-  const result = await response.text();
-  console.log(result);
-} catch (error) {
-  console.error(error);
-}
+const api = new BalldontlieAPI({
+  apiKey: "4d7af431-d6a9-403d-a99e-571a637f0be6",
+});
+const stats = await api.nba.getSeasonAverages({
+  season: 2023,
+  player_id: 1996,
+});
+
+console.log(stats);
