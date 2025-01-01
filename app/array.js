@@ -106,3 +106,5 @@ const players = [
   { name: "Gerald Green", threePt: 32.4, twoPt: 43.9, freeThrow: 79.2 },
   { name: "Keith Van Horn", threePt: 37.4, twoPt: 46.2, freeThrow: 77.9 },
 ];
+
+export { players };
