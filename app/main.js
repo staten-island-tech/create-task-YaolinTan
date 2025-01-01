@@ -5,7 +5,9 @@ let shotsMade = 0;
 
 while (shotsMade < 10) {
   const randomNumber = Math.floor(Math.random() * 100) + 1;
-  console.log(randomNumber);
-  console.log(player[`${randomNumber}`]);
+  let three = players[`${randomNumber}`].threePt;
+  let two = players[`${randomNumber}`].twoPt;
+  let one = players[`${randomNumber}`].freeThrow;
+
   shotsMade++;
 }
