@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="/dist/output.css" rel="stylesheet">
+
+    <title>Is This The Dagger</title>
   </head>
   <body>
-    <H1>TEST</H1>
+    <h1>Is This The Dagger</h1>
+    <div class="buttonRow">
+      <button type="click" class="button button3"><h2>Three Pointer</h2></button>
+      <button type="click" class="button button2"><h2>Mid Range</h2></button>
+      <button type="click" class="button button1"><h2>Drive In and Draw a foul</h2></button>
+    </div>
+    <div class="contextRow">
+      <div class="context card"><h2>Your team is down two with the ball in your hands in the last possession of the game. Pick the shot you take carefully as it could decide the outcome of the game</h2></div>
+    </div>
+    <div class="feedback">
+      <div class="player card feedbackCard"></div>
+      <div class="console card feedbackCard"></div>
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
