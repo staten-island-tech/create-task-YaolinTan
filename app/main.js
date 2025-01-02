@@ -9,9 +9,18 @@ const DOMselectors = {
 };
 
 let deficit = 2;
+let shotCount = 0;
+let i = 1;
+const contextContainer = document.querySelector(".contextRow");
 
 async function startGame() {
   while (deficit > -1) {
+    if (deficit === 0) {
+      deficit += 2;
+      i += 1;
+      shotCount -= shotCount;
+      console.log("Deficit:", deficit);
+    }
     const playerContainer = document.querySelector(".player");
     const consoleContainer = document.querySelector(".console");
     playerContainer.innerHTML = "";
@@ -26,12 +35,33 @@ async function startGame() {
     console.log("ft%:", one);
     insertPlayer(player, playerContainer);
     const shotTaken = Math.random() * 1;
-    console.log(shotTaken);
+    console.log("Chance of shot taken:", shotTaken);
 
     const { shotSelected, points } = await waitForClick(three, two, one);
-    const contextContainer = document.querySelector(".contextRow");
     results(shotTaken, points, shotSelected);
     insertConsole(deficit, player, consoleContainer, contextContainer);
+    shotCount++;
+    console.log("Shot Count:", shotCount);
+    console.log("Deficit:", deficit);
+    if (shotCount < 2) {
+    }
+    if (deficit > 0 && shotCount === 2) {
+      console.log("Shot Count:", shotCount);
+      contextContainer.innerHTML = "";
+      contextContainer.insertAdjacentHTML(
+        "beforeend",
+        `<div class="context card"><h2>Time runs out and your team loses</h2></div>`
+      );
+      return "Lose";
+    }
+    if (deficit === 0 && shotCount === 2) {
+      console.log("Shot Count:", shotCount);
+      contextContainer.innerHTML = "";
+      contextContainer.insertAdjacentHTML(
+        "beforeend",
+        `<div class="context card"><h2>Time runs out and your team goes into OT${i}, you get the ball again at the end of the clock, down 2...</h2></div>`
+      );
+    }
   }
 }
 
@@ -74,11 +104,11 @@ function waitForClick(three, two, one) {
 
 function results(shotTaken, points, shotSelected) {
   if (shotTaken <= shotSelected) {
-    console.log(deficit, points);
+    console.log(shotSelected);
     deficit -= points;
     console.log("Splash");
-    console.log(deficit);
   } else {
+    console.log(shotSelected);
     console.log("Clank");
   }
 }
@@ -105,8 +135,6 @@ function insertPlayer(player, playerContainer) {
   );
 }
 
-let i = 1;
-
 function insertConsole(deficit, player, consoleContainer, contextContainer) {
   if (deficit === 2) {
     contextContainer.innerHTML = "";
@@ -126,7 +154,6 @@ function insertConsole(deficit, player, consoleContainer, contextContainer) {
       <div class="context card"><h2>Time runs out and it ends in a tie, now you're in the last possession of OT ${i} with the ball in your hands again. Pick the shot you take carefully as it could decide the outcome of the game </h2></div>
     `
     );
-    i += 1;
   }
   if (deficit < 0) {
     consoleContainer.insertAdjacentHTML(
