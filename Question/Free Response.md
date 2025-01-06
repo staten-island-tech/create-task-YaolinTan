@@ -209,22 +209,54 @@ retrieveFeelingQuote(blah);
 ```
 
 - Describe the expected behavior of each call. If it is not possible for two calls to your procedure to cause different code segments to execute, explain why this is the case for your procedure.
-  Angelina.js
+
+Angelina.js
 
 ```js
-insertText(fileContent, "file");
-//Takes each string of an array and inserts them
-insertText(inputNodes, "paste");
-//Takes each node, extract its text contents and inserts them
+content.forEach(function (item) {
+  DOMSelect.results.insertAdjacentHTML(
+    "beforeend",
+    `<p class="text">${item}</p>`
+  );
+});
+```
+
+Angelina.js
+
+```js
+content.forEach(function (item) {
+  DOMSelect.results.insertAdjacentHTML(
+    "beforeend",
+    `<p class="text">${item.textContent}</p>`
+  );
+});
 ```
 
 Butter.js
 
 ```js
-retrieveFeelingQuote(inspirational);
-//Grabs inspirational quotes and make cards out of them
-retrieveFeelingQuote(blah);
-//Returns error message/response
+console.log("Retrieved Quote:", result); //Check: Quote Retrieval
+const quoteObject = {
+  author: result[0].author,
+  quote: result[0].quote,
+  category: category,
+};
+quoteHistory.push(quoteObject); //Quote added to long term storage (History)
+console.log("History of Quotes:", quoteHistory); //Check to see if in long term
+quoteCurrent.length = 0; //Empty quoteCurrent
+quoteCurrent.push(quoteObject); //Quote added to short term storage (Current Quote)
+// Display the quote on the page
+console.log("Current Quote:", quoteCurrent); //Check to see if current quote works
+for (let i = 0; i < quoteCurrent.length; i++) {
+  const quote = quoteCurrent[i];
+  createQuoteCard(quote);
+}
+```
+
+Butter.js
+
+```js
+console.error("Error: ", jqXHR.responseText);
 ```
 
 #### Part (c):
