@@ -23,7 +23,7 @@ h1 {
   font-size: 4rem;
 }
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .buttonRow {
   display: flex;
@@ -91,6 +91,10 @@ h2 {
 }
 h3 {
   margin-right: 0.2rem;
+  font-size: 1.5rem;
+}
+p {
+  font-size: 1.5rem;
 }
 /*@media (max-width: 1400px) {
   html,
