@@ -12,6 +12,7 @@ let deficit = 2;
 let shotCount = 0;
 let i = 1;
 const contextContainer = document.querySelector(".contextRow");
+const picContainer = document.querySelector(".pic");
 
 async function startGame() {
   while (deficit > -1) {
@@ -39,7 +40,13 @@ async function startGame() {
 
     const { shotSelected, points } = await waitForClick(three, two, one);
     results(shotTaken, points, shotSelected);
-    insertConsole(deficit, player, consoleContainer, contextContainer);
+    insertConsole(
+      deficit,
+      player,
+      consoleContainer,
+      contextContainer,
+      picContainer
+    );
     shotCount++;
     console.log("Shot Count:", shotCount);
     console.log("Deficit:", deficit);
@@ -135,13 +142,26 @@ function insertPlayer(player, playerContainer) {
   );
 }
 
-function insertConsole(deficit, player, consoleContainer, contextContainer) {
+function insertConsole(
+  deficit,
+  player,
+  consoleContainer,
+  contextContainer,
+  picContainer
+) {
   if (deficit === 2) {
     contextContainer.innerHTML = "";
     contextContainer.insertAdjacentHTML(
       "beforeend",
       `
        <div class="context card"><h2>Rebound Bosh, back out to the perimeter</h2></div>
+      `
+    );
+    picContainer.innerHTML = "";
+    picContainer.insertAdjacentHTML(
+      "beforeend",
+      `
+      <img src="https://th.bing.com/th/id/OIP.1Xjux_QDz-ucvl1c2zb0_gAAAA?rs=1&pid=ImgDetMain" alt="Rebound Bosh">
       `
     );
   }

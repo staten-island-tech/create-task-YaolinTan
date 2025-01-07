@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -75,9 +74,8 @@ h2 {
   width: 30vw;
   text-align: center;
 }
-.player {
-}
-.console {
+.pic {
+  align-items: center;
 }
 .stats {
   display: flex;
@@ -96,7 +94,7 @@ h3 {
 p {
   font-size: 1.5rem;
 }
-/*@media (max-width: 1400px) {
+@media (max-width: 1400px) {
   html,
   body,
   * {
@@ -165,4 +163,4 @@ p {
   .card {
     width: 50vw;
   }
-}*/
+}
