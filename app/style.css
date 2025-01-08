@@ -75,7 +75,10 @@ h2 {
   text-align: center;
 }
 .pic {
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6rem;
 }
 .stats {
   display: flex;

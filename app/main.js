@@ -38,7 +38,12 @@ async function startGame() {
     const shotTaken = Math.random() * 1;
     console.log("Chance of shot taken:", shotTaken);
 
-    const { shotSelected, points } = await waitForClick(three, two, one);
+    const { shotSelected, points } = await waitForClick(
+      three,
+      two,
+      one,
+      picContainer
+    );
     results(shotTaken, points, shotSelected);
     insertConsole(
       deficit,
@@ -74,7 +79,7 @@ async function startGame() {
 
 startGame();
 
-function waitForClick(three, two, one) {
+function waitForClick(three, two, one, picContainer) {
   return new Promise((resolve) => {
     const buttons = [
       DOMselectors.button1,
@@ -93,12 +98,15 @@ function waitForClick(three, two, one) {
             shotSelected = one * one;
             points = 2;
             console.log("2ft%:", shotSelected);
+            picContainer.innerHTML = "";
           } else if (button === DOMselectors.button2) {
             shotSelected = two;
             points = 2;
+            picContainer.innerHTML = "";
           } else if (button === DOMselectors.button3) {
             shotSelected = three;
             points = 3;
+            picContainer.innerHTML = "";
           }
 
           resolve({ shotSelected, points });
@@ -174,6 +182,13 @@ function insertConsole(
       <div class="context card"><h2>Time runs out and it ends in a tie, now you're in the last possession of OT ${i} with the ball in your hands again. Pick the shot you take carefully as it could decide the outcome of the game </h2></div>
     `
     );
+    picContainer.innerHTML = "";
+    picContainer.insertAdjacentHTML(
+      "beforeend",
+      `
+      <img src="https://cdn.vox-cdn.com/thumbor/PdBZcnYaQGuetelIpdNWVPdUi50=/0x0:882x881/1200x800/filters:focal(387x417:527x557)/cdn.vox-cdn.com/uploads/chorus_image/image/59215617/Final_Cover_Edit.0.jpg" alt="Overtime">
+      `
+    );
   }
   if (deficit < 0) {
     consoleContainer.insertAdjacentHTML(
@@ -181,6 +196,13 @@ function insertConsole(
       `
     <h2>*Buzzer sounds* Is this the dagger... Bang! Bang! Game! Series! ${player.name} seals the game </h2>
     `
+    );
+    picContainer.innerHTML = "";
+    picContainer.insertAdjacentHTML(
+      "beforeend",
+      `
+      <img src="https://th.bing.com/th/id/R.c867a281ba5bc6a0ac535eaff990a654?rik=XrDP6BP3TIHjOQ&riu=http%3a%2f%2fmedia.video-cdn.espn.com%2fmotion%2f2019%2f0309%2fdm_190309_nba_wade_this_is_my_house%2fdm_190309_nba_wade_this_is_my_house_default.jpg&ehk=aFuzLkE6xrm899luV7vSb1i3rWWM8Puqe76SvzevAEw%3d&risl=&pid=ImgRaw&r=0 alt="This my house">
+      `
     );
     return "splash";
   }
