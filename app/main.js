@@ -59,6 +59,8 @@ async function startGame() {
     }
     if (deficit > 0 && shotCount === 2) {
       console.log("Shot Count:", shotCount);
+      picContainer.innerHTML = "";
+      picContainer.insertAdjacentHTML();
       contextContainer.innerHTML = "";
       contextContainer.insertAdjacentHTML(
         "beforeend",
