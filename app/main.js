@@ -147,8 +147,9 @@ function insertPlayer(player, playerContainer) {
   playerContainer.insertAdjacentHTML(
     "beforeend",
     `
-    <div></div>
+      <div>
       <h2>${player.name}</h2>
+      </div>
       <div class="text">
       <h3>Three Point Percentage:</h3>
       <p>${player.threePt}</p>
