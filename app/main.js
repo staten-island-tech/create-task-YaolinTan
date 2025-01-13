@@ -24,6 +24,7 @@ async function startGame() {
     }
     const playerContainer = document.querySelector(".player");
     const consoleContainer = document.querySelector(".console");
+    const picContainer = document.querySelector(".pic");
     playerContainer.innerHTML = "";
     const randomNumber = Math.floor(Math.random() * 99);
     let player = players[randomNumber];
@@ -59,13 +60,25 @@ async function startGame() {
     }
     if (deficit > 0 && shotCount === 2) {
       console.log("Shot Count:", shotCount);
-      picContainer.innerHTML = "";
-      picContainer.insertAdjacentHTML();
       contextContainer.innerHTML = "";
       contextContainer.insertAdjacentHTML(
         "beforeend",
         `<div class="context card"><h2>Time runs out and your team loses</h2></div>`
       );
+      console.log(picContainer);
+      picContainer.innerHTML = "";
+      picContainer.insertAdjacentHTML(
+        "beforeend",
+        `<iframe
+         style="width: 56rem; height: 31.5rem;"
+         src="https://www.youtube.com/embed/irDfUKBwSWI?&autoplay=1"
+         title="YouTube video player"
+         frameborder="0"
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen>
+        </iframe>`
+      );
+
       return "Lose";
     }
     if (deficit === 0 && shotCount === 2) {
