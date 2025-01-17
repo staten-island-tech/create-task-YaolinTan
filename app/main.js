@@ -185,7 +185,7 @@ function insertConsole(
     picContainer.insertAdjacentHTML(
       "beforeend",
       `
-      <img src="https://th.bing.com/th/id/OIP.1Xjux_QDz-ucvl1c2zb0_gAAAA?rs=1&pid=ImgDetMain" alt="Rebound Bosh">
+      <img src="https://th.bing.com/th/id/OIP.1Xjux_QDz-ucvl1c2zb0_gAAAA?rs=1&pid=ImgDetMain" alt="Rebound Bosh" style="width: 56rem; height: 31.5rem;">
       `
     );
   }
@@ -202,7 +202,7 @@ function insertConsole(
     picContainer.insertAdjacentHTML(
       "beforeend",
       `
-      <img src="https://cdn.vox-cdn.com/thumbor/PdBZcnYaQGuetelIpdNWVPdUi50=/0x0:882x881/1200x800/filters:focal(387x417:527x557)/cdn.vox-cdn.com/uploads/chorus_image/image/59215617/Final_Cover_Edit.0.jpg" alt="Overtime">
+      <img src="https://cdn.vox-cdn.com/thumbor/PdBZcnYaQGuetelIpdNWVPdUi50=/0x0:882x881/1200x800/filters:focal(387x417:527x557)/cdn.vox-cdn.com/uploads/chorus_image/image/59215617/Final_Cover_Edit.0.jpg" alt="Overtime" style="width: 56rem; height: 31.5rem;">
       `
     );
   }
